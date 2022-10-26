@@ -1,6 +1,5 @@
-FROM ubuntu:18.04
-RUN apt-get update
-RUN apt-get install -y nginx
-WORKDIR /etc/nginx
-CMD nginx
-
+FROM nginx
+RUN apt update && apt install wget
+RUN http://100.100.100.117:9999/default.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD nginx -g daemon
