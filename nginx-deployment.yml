@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: httpd-deployment-prod
+ name: nginx-deployment
  namespace: prod
 spec:
  selector:
