@@ -6,7 +6,7 @@ metadata:
 spec:
  selector:
    matchLabels:
-    type: web
+    type: nginx
  replicas: 2
  template:
    metadata:
