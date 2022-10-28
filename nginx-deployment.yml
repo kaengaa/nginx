@@ -1,29 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
-  namespace: prod
-  type: web
-  app: nginx
+ name: nginx-deployment
+ namespace: prod
+ labels:
+   type: web
+   app: nginx
 spec:
-  selector:
-    matchLabels:
-      type: web
-      app: nginx
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        type: web
-        app: nginx
-    spec:
-      containers:
-      - name: container
-        image: kaenga/nginx:latest
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            cpu: 100m
-          limits:
-            cpu: 200m
+ selector:
+   matchLabels:
+    type: web
+    app: nginx
+ replicas: 2
+ template:
+   metadata:
+     labels:
+       type: web
+       app: nginx
+   spec:
+    containers:
+    - name: container
+      image: kaenga/nginx:latest
+      ports:
+      - containerPort: 80
+      resources:
+        requests:
+          cpu: 100m
+        limits:
+          cpu: 200m
+
