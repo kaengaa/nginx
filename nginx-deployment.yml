@@ -6,14 +6,12 @@ metadata:
 spec:
  selector:
    matchLabels:
-    type: web
-    app: nginx
+    type: nginx
  replicas: 2
  template:
    metadata:
      labels:
-       type: web
-       app: nginx
+       type: nginx
    spec:
     containers:
     - name: container
