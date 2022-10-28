@@ -3,15 +3,19 @@ kind: Deployment
 metadata:
  name: nginx-deployment
  namespace: prod
+ type: app
+ app: nginx
 spec:
  selector:
    matchLabels:
-    type: nginx
- replicas: 2
+     type: app
+     app: nginx
+ replicas: 1
  template:
    metadata:
      labels:
        type: nginx
+       app: nginx
    spec:
     containers:
     - name: container
